@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import NavBar from './NavBar';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -8,7 +7,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
