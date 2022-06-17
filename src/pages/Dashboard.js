@@ -7,8 +7,21 @@ import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import SearchBar from "../components/SearchBar";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
+  let navigate = useNavigate();
+
+  const signInFunction = () => {
+    let path = 'signin';
+    navigate(path);
+  }
+
+  const signUpFunction = () => {
+    let path = 'signup';
+    navigate(path);
+  }
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -34,8 +47,8 @@ export default function Dashboard() {
 
               alignItems="center"
             >
-              <Button color="primary" size="large">Sign in</Button>
-              <Button color="primary" disableElevation variant="contained" size="large">Register</Button>
+              <Button color="primary" size="large" onClick={signInFunction}>Sign in</Button>
+              <Button color="primary" disableElevation variant="contained" size="large" onClick={signUpFunction}>Register</Button>
             </Grid>
           </Toolbar>
         </AppBar>
