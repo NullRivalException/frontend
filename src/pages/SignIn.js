@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import SvgIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
@@ -17,7 +16,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://github.com/NullRivalException">
         NullRivalException
       </Link>{' '}
       {new Date().getFullYear()}

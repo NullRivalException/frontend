@@ -14,13 +14,11 @@ export default function Dashboard() {
   let navigate = useNavigate();
 
   const signInFunction = () => {
-    let path = 'signin';
-    navigate(path);
+    navigate('/signin');
   }
 
   const signUpFunction = () => {
-    let path = 'signup';
-    navigate(path);
+    navigate('/signup');
   }
   return (
     <>
@@ -48,7 +46,7 @@ export default function Dashboard() {
               alignItems="center"
             >
               <Button color="primary" size="large" onClick={signInFunction}>Sign in</Button>
-              <Button color="primary" disableElevation variant="contained" size="large" onClick={signUpFunction}>Register</Button>
+              <Button color="primary" disableElevation variant="contained" size="large" onClick={signUpFunction}>Sign Up</Button>
             </Grid>
           </Toolbar>
         </AppBar>

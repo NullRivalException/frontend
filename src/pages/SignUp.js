@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -18,7 +16,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://github.com/NullRivalException">
         NullRivalException
       </Link>{' '}
       {new Date().getFullYear()}
@@ -30,6 +28,13 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  let navigate = useNavigate();
+
+  const signInFunction = () => {
+    navigate(1);
+    navigate('/signin');
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -110,13 +115,13 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
-            {/* <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link variant="body2" onClick={signInFunction}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
-            </Grid> */}
+            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
