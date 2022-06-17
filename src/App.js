@@ -1,9 +1,9 @@
-import Dashboard from "./pages/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from "./pages/SignIn"
-import SignUp from "./pages/SignUp"
+import Dashboard from './pages/Dashboard';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
-export default function App() {
+function App() {
   return (
     <Router>
       <div className="App">
@@ -18,3 +18,5 @@ export default function App() {
     </Router>
   );
 }
+
+export default App;
