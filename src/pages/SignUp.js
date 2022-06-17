@@ -12,13 +12,14 @@ import SvgIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        NullRivalException
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -115,13 +116,13 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            {/* <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
