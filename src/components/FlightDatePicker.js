@@ -10,7 +10,6 @@ export default function FlightDatePicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
-
         label="when"
         value={value}
         onChange={(newValue) => {
