@@ -1,16 +1,19 @@
-import { useState } from "react";
-import { Paper } from "@mui/material";
-import { Grid } from "@mui/material";
-import { Autocomplete } from "@mui/material";
-import { TextField } from "@mui/material";
-import FlightDatePicker from "./FlightDatePicker";
-import { Divider } from "@mui/material";
-import { Button } from "@mui/material";
-import { Snackbar } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import {
+  Autocomplete,
+  Button,
+  Divider,
+  Grid,
+  Paper,
+  Snackbar,
+  TextField,
+} from "@mui/material";
+import { useState } from "react";
+import FlightDatePicker from "./FlightDatePicker";
+import React from "react";
 
-export default function SearchBar() {
-  let [sbOpen, setSbOpen] = useState(false);
+export default function SearchBar(props) {
+  let { navigate } = props;
 
   return (
     <Paper
@@ -46,21 +49,11 @@ export default function SearchBar() {
           size="large"
           disableElevation
           startIcon={<SearchIcon />}
-          onClick={() => setSbOpen(true)}
+          onClick={() => navigate("/search")}
         >
           {" "}
           Search
         </Button>
-        <Snackbar
-          open={sbOpen}
-          autoHideDuration={6000}
-          action={
-            <Button color="primary" size="small">
-              F*** you dude!
-            </Button>
-          }
-          message="Search not working? Nonsense! It works on my maschine!"
-        />
       </Grid>
     </Paper>
   );
