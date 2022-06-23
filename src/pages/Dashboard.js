@@ -2,24 +2,24 @@ import { Box } from "@mui/material";
 import { AppBar } from "@mui/material";
 import { Grid } from "@mui/material";
 import { Toolbar } from "@mui/material";
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import SearchBar from "../components/SearchBar";
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   let navigate = useNavigate();
 
   const signInFunction = () => {
-    navigate('/signin');
-  }
+    navigate("/signin");
+  };
 
   const signUpFunction = () => {
-    navigate('/signup');
-  }
+    navigate("/signup");
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -33,7 +33,11 @@ export default function Dashboard() {
               alignItems="center"
             >
               <DashboardIcon />
-              <Typography variant="h6" component="div" sx={{ verticalAlign: "center" }}>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ verticalAlign: "center" }}
+              >
                 Trip Dashboard
               </Typography>
             </Grid>
@@ -42,16 +46,25 @@ export default function Dashboard() {
               direction="row"
               justifyContent="flex-end"
               columnGap={2}
-
               alignItems="center"
             >
-              <Button color="primary" size="large" onClick={signInFunction}>Sign in</Button>
-              <Button color="primary" disableElevation variant="contained" size="large" onClick={signUpFunction}>Sign Up</Button>
+              <Button color="primary" size="large" onClick={signInFunction}>
+                Sign in
+              </Button>
+              <Button
+                color="primary"
+                disableElevation
+                variant="contained"
+                size="large"
+                onClick={signUpFunction}
+              >
+                Sign Up
+              </Button>
             </Grid>
           </Toolbar>
         </AppBar>
       </Box>
-      <Grid container justifyContent="center" direction="column" >
+      <Grid container justifyContent="center" direction="column">
         <Grid item height="15vh" />
         <Container>
           <Grid item>
@@ -70,10 +83,12 @@ export default function Dashboard() {
 }
 
 function BigHeader() {
-  return <Typography variant="h3" align='center' color="primary">
-    <Grid container justifyContent="center" direction="column">
-      <Grid item>Search for flights from anywhere,</Grid>
-      <Grid item>to anywhere, at any time!</Grid>
-    </Grid>
-  </Typography>
+  return (
+    <Typography variant="h3" align="center" color="primary">
+      <Grid container justifyContent="center" direction="column">
+        <Grid item>Search for flights from anywhere,</Grid>
+        <Grid item>to anywhere, at any time!</Grid>
+      </Grid>
+    </Typography>
+  );
 }
