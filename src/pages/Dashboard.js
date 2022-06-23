@@ -1,14 +1,16 @@
-import { Box } from "@mui/material";
-import { AppBar } from "@mui/material";
-import { Grid } from "@mui/material";
-import { Toolbar } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
-import { Container } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   let navigate = useNavigate();
@@ -74,7 +76,7 @@ export default function Dashboard() {
         <Grid item height="8vh" />
         <Container>
           <Grid item component="div" style={{ textAlign: "center" }}>
-            <SearchBar />
+            <SearchBar navigate={navigate} />
           </Grid>
         </Container>
       </Grid>
