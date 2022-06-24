@@ -1,7 +1,4 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Icon from "@mui/material/Icon";
@@ -15,10 +12,19 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useState } from "react";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import { useNavigate } from "react-router-dom";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 /* eslint-disable no-unused-expressions */
 
@@ -29,19 +35,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "left",
   color: theme.palette.text.secondary,
 }));
-
-function bullAuto(props) {
-  const colour = "red";
-
-  if (props.price <= 500) {
-    colour = "green";
-  } else {
-    if (props.price <= 800) {
-      colour = "yellow";
-    }
-
-    return colour;
-  }
 
   function saveFavouriteFlight(props) {
     /**execute query:
@@ -59,80 +52,29 @@ function bullAuto(props) {
      */
   }
 
-  function getDateTime(props) {}
-
-  <Box
-    component="span"
-    sx={{
-      display: "inline-block",
-      mx: "2px",
-      transform: "scale(1.8)",
-      color: colour,
-    }}
-  >
-    ◍
-  </Box>;
-}
-
-const card = (
-  <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        Word of the Day
-      </Typography>
-      <Typography variant="h5" component="div">
-        Some Text
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        adjective
-      </Typography>
-      <Typography variant="body2">
-        well meaning and kindly.
-        <br />
-        {'"a benevolent smile"'}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
-  </React.Fragment>
-);
-
-function priceColour(props) {
-  const colour = "purple";
-
-  if (props.price <= 800) {
-    colour = "green";
-  } else {
-    if (props.price <= 900) {
-      colour = "orange";
-    } else {
-      colour = "red";
-    }
+  function getDateTime(props) {
+    /**Substring of DateTime to display only time
+     * 
+     */
   }
 
-  return (
-    <Box
-      component="span"
-      sx={{
-        display: "inline-block",
-        mx: "2px",
-        transform: "scale(1.8)",
-        color: colour,
-      }}
-    >
-      ◍
-    </Box>
-  );
-}
 
-export default function SerchResult() {
+export default function SerchResult(props) {
+  let navigate = useNavigate();
   let [destination, setDestination] = useState("Johannesburg");
   let [departure, setDeparture] = useState("Munich");
   let [currency, setCurrency] = useState("€");
-  let [departureDate, setDepartureDate] = useState("2022-06-30T20:00");
+  let [departureDateTime, setDepartureDateTime] = useState("2022-06-30T20:00");
   let [username, setUserName] = useState("ruan.viljoen@tum.de");
 
+  const signInFunction = () => {
+    navigate("/signin");
+  };
+  
+  const signUpFunction = () => {
+    navigate("/signup");
+  };
+  
   function createData(
     departure,
     destination,
@@ -143,30 +85,42 @@ export default function SerchResult() {
     return { departure, destination, departureTime, arrivalTime, price };
   }
 
-  const bull = (
-    <Box
-      component="span"
-      sx={{
-        display: "inline-block",
-        mx: "2px",
-        transform: "scale(1.8)",
-        color: "green",
-      }}
-    >
-      ◍
-    </Box>
-  );
+  function PriceColour(props) {
+    
+    var colour = "grey"
+    console.log(props.price);
+
+    if(props.price <= 600) {
+      colour = "green"
+    }
+    else {
+      if(props.price <= 900) {
+        colour = "orange"
+      }
+      else {
+        colour = "red"
+      }
+    }
+  return ( 
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(1.8)', color: colour }}
+  >
+    ◍
+  </Box>
+);}
 
   const flightText = departure + " to " + destination;
   const rows = [
-    createData(departure, destination, "20:00", "06:00", currency + 500),
-    createData(departure, destination, "23:00", "09:00", currency + 1000),
-    createData(departure, destination, "14:10", "05:10", currency + 700),
-    createData(departure, destination, "15:50", "07:00", currency + 900),
-    createData(departure, destination, "20:00", "14:00", currency + 800),
+    createData(departure, destination, "20:00", "06:00", 500),
+    createData(departure, destination, "23:00", "09:00", 1000),
+    createData(departure, destination, "14:10", "05:10", 700),
+    createData(departure, destination, "15:50", "07:00", 900),
+    createData(departure, destination, "20:00", "14:00", 800),
   ];
 
   function BasicTable() {
+
     return (
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -253,13 +207,13 @@ export default function SerchResult() {
                   {row.departureTime}
                 </TableCell>
                 <TableCell align="right">{row.arrivalTime}</TableCell>
-                <TableCell align="right">{row.price}</TableCell>
+                <TableCell align="right"> {currency}{row.price}</TableCell>
                 <TableCell
                   align="left"
                   padding="normal"
                   style={{ width: "12%" }}
                 >
-                  <priceColour price={row.price}></priceColour>
+                  <PriceColour price={row.price}></PriceColour>
                 </TableCell>
               </TableRow>
             ))}
@@ -279,23 +233,46 @@ export default function SerchResult() {
         <Box sx={{ width: "100%" }}>
           <Stack spacing={4}>
             <Box sx={{ flexGrow: 1 }}>
-              <AppBar position="static" color="">
-                <Toolbar>
-                  <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 4 }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Typography variant="h6" component="div" sx={{ flexGrow: 4 }}>
-                    Flights
-                  </Typography>
-                  <Button color="inherit">Login</Button>
-                </Toolbar>
-              </AppBar>
+            <AppBar position="static" color="transparent">
+          <Toolbar>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              columnGap={1}
+              alignItems="center"
+            >
+              <DashboardIcon />
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ verticalAlign: "center" }}
+              >
+                Trip Dashboard
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              columnGap={2}
+              alignItems="center"
+            >
+              <Button color="primary" size="large" onClick={signInFunction}>
+                Sign in
+              </Button>
+              <Button
+                color="primary"
+                disableElevation
+                variant="contained"
+                size="large"
+                onClick={signUpFunction}
+              >
+                Sign Up
+              </Button>
+            </Grid>
+          </Toolbar>
+        </AppBar>
             </Box>
 
             <div className="row">
