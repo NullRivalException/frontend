@@ -11,9 +11,11 @@ import {
 import { useState } from "react";
 import FlightDatePicker from "./FlightDatePicker";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function SearchBar(props) {
-  let { navigate } = props;
+export default function SearchBar() {
+  let navigate = useNavigate();
+  const handleSearch = () => navigate("/search");
 
   return (
     <Paper
@@ -49,7 +51,7 @@ export default function SearchBar(props) {
           size="large"
           disableElevation
           startIcon={<SearchIcon />}
-          onClick={() => navigate("/search")}
+          onClick={handleSearch}
         >
           {" "}
           Search

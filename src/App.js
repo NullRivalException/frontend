@@ -4,6 +4,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import SearchResult from "./pages/SearchResult";
 import React from "react";
+import Details from "./pages/Details";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route exact path="/signin" element={<SignIn />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/search" element={<SearchResult />} />
+            <Route exact path="/info" element={<Details />} />
           </Routes>
         </div>
       </div>
