@@ -14,17 +14,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import { useState } from "react";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import { useNavigate } from "react-router-dom";
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box } from "@mui/material";
+import TopBar from "../components/TopBar";
 
 /* eslint-disable no-unused-expressions */
 
@@ -36,28 +28,27 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-  function saveFavouriteFlight(props) {
-    /**execute query:
+function saveFavouriteFlight(props) {
+  /**execute query:
      * INSERT INTO tblFavouriteFlights (username, flightid)
        VALUES (username, props.flightId)
      */
-  }
+}
 
-  function removeFavouriteFlight(props) {
-    /**execute query:
-     * DELETE FROM tblFavouriteFlights
-     * WHERE username = username
-     * AND flightId = props.flightId
-     *
-     */
-  }
+function removeFavouriteFlight(props) {
+  /**execute query:
+   * DELETE FROM tblFavouriteFlights
+   * WHERE username = username
+   * AND flightId = props.flightId
+   *
+   */
+}
 
-  function getDateTime(props) {
-    /**Substring of DateTime to display only time
-     * 
-     */
-  }
-
+function getDateTime(props) {
+  /**Substring of DateTime to display only time
+   *
+   */
+}
 
 export default function SerchResult(props) {
   let navigate = useNavigate();
@@ -70,11 +61,15 @@ export default function SerchResult(props) {
   const signInFunction = () => {
     navigate("/signin");
   };
-  
+
   const signUpFunction = () => {
     navigate("/signup");
   };
-  
+
+  const handleInfoClick = () => {
+    navigate("/info");
+  };
+
   function createData(
     departure,
     destination,
@@ -86,29 +81,32 @@ export default function SerchResult(props) {
   }
 
   function PriceColour(props) {
-    
-    var colour = "grey"
+    var colour = "grey";
     console.log(props.price);
 
-    if(props.price <= 600) {
-      colour = "green"
-    }
-    else {
-      if(props.price <= 900) {
-        colour = "orange"
-      }
-      else {
-        colour = "red"
+    if (props.price <= 600) {
+      colour = "green";
+    } else {
+      if (props.price <= 900) {
+        colour = "orange";
+      } else {
+        colour = "red";
       }
     }
-  return ( 
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(1.8)', color: colour }}
-  >
-    ◍
-  </Box>
-);}
+    return (
+      <Box
+        component="span"
+        sx={{
+          display: "inline-block",
+          mx: "2px",
+          transform: "scale(1.8)",
+          color: colour,
+        }}
+      >
+        ◍
+      </Box>
+    );
+  }
 
   const flightText = departure + " to " + destination;
   const rows = [
@@ -120,7 +118,6 @@ export default function SerchResult(props) {
   ];
 
   function BasicTable() {
-
     return (
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -169,7 +166,7 @@ export default function SerchResult(props) {
                   style={{ width: "5%" }}
                 >
                   {
-                    <IconButton>
+                    <IconButton onClick={handleInfoClick}>
                       <link
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -207,7 +204,11 @@ export default function SerchResult(props) {
                   {row.departureTime}
                 </TableCell>
                 <TableCell align="right">{row.arrivalTime}</TableCell>
-                <TableCell align="right"> {currency}{row.price}</TableCell>
+                <TableCell align="right">
+                  {" "}
+                  {currency}
+                  {row.price}
+                </TableCell>
                 <TableCell
                   align="left"
                   padding="normal"
@@ -230,56 +231,8 @@ export default function SerchResult(props) {
       }}
     >
       <header>
-        <Box sx={{ width: "100%" }}>
-          <Stack spacing={4}>
-            <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" color="transparent">
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justifyContent="flex-start"
-              columnGap={1}
-              alignItems="center"
-            >
-              <DashboardIcon />
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ verticalAlign: "center" }}
-              >
-                Trip Dashboard
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justifyContent="flex-end"
-              columnGap={2}
-              alignItems="center"
-            >
-              <Button color="primary" size="large" onClick={signInFunction}>
-                Sign in
-              </Button>
-              <Button
-                color="primary"
-                disableElevation
-                variant="contained"
-                size="large"
-                onClick={signUpFunction}
-              >
-                Sign Up
-              </Button>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-            </Box>
-
-            <div className="row">
-              <BasicTable></BasicTable>
-            </div>
-          </Stack>
-        </Box>
+        <TopBar />
+        <BasicTable />
       </header>
     </div>
   );
