@@ -149,38 +149,25 @@ export default function Details() {
             columnGap={1}
           >
             <img src={imagey} height={500} width={1300} />
-            <h2>WHY GO TO BERLIN!!!</h2>
+            <h2>WHY GO TO !!!</h2>
             <p>
               {" "}
               Tourists,Talents,Technology and Tolerance shape the rhythms of the
               city which is dynamic and welcoming ,tolerant and trendy,diverse
-              and creative.A US magazine called Berlin “the place to be” and
-              encapsulated the thing that fascinates both Berliners and
-              visitors. No other city has such a moving history, no other city
+              and creative.A US magazine called this city “the place to be” and
+              encapsulated the thing that fascina visitors.
+              No other city has such a moving history, no other city
               has changed this fast – and reinvents itself constantly.But
-              exactly what is it that actually makes Berlin so attractive? It is
+              exactly what is it that actually makes it so attractive? It is
               the diversity, the contrasts and the sheer inexhaustible potential
               of this capital city to consistently fire the enthusiasm of its
               visitors from all over the world. People are excited by the
               mixture of history and Zeitgeist, the broad spectrum of art,
               culture, music, entertainment and shopping facilities.On average,
-              500.000 guests visit Berlin each day. Half of them come to the
-              German capital for a second or third time. And many who come as
-              tourists think about moving here. Berlin has a magnetism over
-              young, creative, well-trained, and productive people.visitBerlin
-              launched the app „Going Local Berlin,“ especially for those Berlin
-              visitors who come to the city yet again. For the first time in an
-              app, all twelve Berlin districts and their unique highlights are
-              the focus. The free app offers visitors tips for orientating
-              themselves in the city’s many diverse neighbourhoods, together
-              with tips for discovering new aspects of Berlin. Initially, 60
-              neighbourhoods with more than 600 tips are presented. They were
-              personally selected by visitBerlin staff and in cooperation with
-              the districts themselves. In addition, the app offers a tour of
-              each district that’s also available as a video and gives insight
-              into the atmosphere and the highlights of that part of the city.
-              The tips are organized into categories such as “Must See”, “Hidden
-              Places” and “Eating and Drinking”.
+              a lot of guests visit here each day. Half of them come to here
+               for a second or third time. And many who come as
+              tourists think about moving here.This city has a magnetism over
+              young, creative, well-trained, and productive people.
             </p>
           </Grid>
         </Paper>
