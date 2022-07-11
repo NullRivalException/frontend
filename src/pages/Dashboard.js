@@ -6,9 +6,9 @@ import TopBar from "../components/TopBar";
 export default function Dashboard() {
   return (
     <>
-      <TopBar />
+      <TopBar onAccountPage={false} />
       <Grid container justifyContent="center" direction="column">
-        <Grid item height="15vh" />
+        <Grid item height="20vh" />
         <Container>
           <Grid item>
             <BigHeader />

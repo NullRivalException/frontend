@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import TopBar from "../components/TopBar";
 
 function Copyright(props) {
   return (
@@ -44,6 +45,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
+      <TopBar onAccountPage />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

@@ -14,6 +14,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import { useState } from "react";
+import TopBar from "../components/TopBar";
 
 export default function Details() {
   let [name, setName] = useState("BrandeburgTor");
@@ -135,8 +136,9 @@ export default function Details() {
 
   return (
     <div className="Destination City">
+      <TopBar onAccountPage={false} />
       <header className="Destination City">
-        <h1 style={{ textAlign: "center" }}>Destination City (BERLIN)</h1>
+        <h1 style={{ textAlign: "center" }}>BERLIN</h1>
         <Paper
           color="default"
           variant="outlined"
@@ -148,7 +150,10 @@ export default function Details() {
             alignItems="center"
             columnGap={1}
           >
-            <img src={imagey} height={500} width={1300} />
+            <p>
+              <img src={imagey} height={500} width={1300} />
+            </p>
+
             <h2>WHY GO TO BERLIN!!!</h2>
             <p>
               {" "}

@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import TopBar from "../components/TopBar";
 
 function Copyright(props) {
   return (
@@ -51,6 +52,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
+      <TopBar onAccountPage />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
