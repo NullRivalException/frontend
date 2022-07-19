@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/material": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "description": "https://github.com/mui/material-ui/blob/v5.8.4/docs/data/material/components/tables/BasicTable.js",
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "name": "BasicTable demo — Material UI"
+}
