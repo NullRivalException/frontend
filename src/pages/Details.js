@@ -1,6 +1,7 @@
-import imagey from "../assets/image.jpeg";
+
 import Weather from "../assets/a.png";
 import Map from "../assets/map.png";
+import background from "../assets/aa.jpg";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -15,10 +16,23 @@ import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import { useState } from "react";
 import TopBar from "../components/TopBar";
+import styles from "../background.module.css";
+import { Button, ButtonGroup } from "@mui/material";
+import {FavoriteBorder, Info,} from "@mui/icons-material";
 
+
+
+ 
+ 
+ 
+
+
+  
 export default function Details() {
   let [name, setName] = useState("BrandeburgTor");
   let [rating, setRating] = useState("4/5");
+
+ 
 
   function createData(name, rating) {
     return { name, rating };
@@ -31,6 +45,29 @@ export default function Details() {
     createData(name, rating),
     createData(name, rating),
   ];
+ /* const Image = () => {
+    return (
+      <article
+        className={styles.article}
+        style={{ backgroundImage: `url(${imagey})` }}
+      >
+        <h1 className={styles.header}>BERLIN</h1>
+      </article>
+    );
+  };*/
+  const Picture = () => {
+    return (
+      <article className={styles.article}>
+        <picture className={styles.picture}>
+          <source media="(min-width: 1000px)" srcSet={background} />
+      
+<img src={background} alt="background" height={650} width={1400} />
+        </picture>
+        <h1 className={styles.header}>BERLIN</h1>
+      </article>
+    );
+  };
+ 
 
   function BasicTable() {
     return (
@@ -39,13 +76,21 @@ export default function Details() {
           <TableHead>
             {
               <TableRow>
-                <TableCell></TableCell>
+                <TableCell align="center"></TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
-                <TableCell align="right">Name</TableCell>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="center"></TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right">Rating</TableCell>
+                <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
               </TableRow>
@@ -58,73 +103,66 @@ export default function Details() {
                 key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell
-                  component="th"
-                  scope="row"
-                  padding="normal"
-                  align="right"
-                  style={{ width: "12%" }}
-                >
-                  {
-                    <IconButton>
-                      <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                      />
-                      <Icon color="secondary">favorite_border</Icon>
-                    </IconButton>
-                  }
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
                 </TableCell>
 
-                <TableCell
-                  align="right"
-                  padding="normal"
-                  style={{ width: "10%" }}
-                ></TableCell>
-                <TableCell
-                  align="right"
-                  padding="normal"
-                  style={{ width: "5%" }}
-                >
-                  {
-                    <IconButton>
-                      <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                      />
-                      <Icon color="primary">info</Icon>
-                    </IconButton>
-                  }
-                </TableCell>
-
-                <TableCell
+                 <TableCell
                   align="right"
                   padding="normal"
                   style={{ width: "0%" }}
                 >
                   {row.name}
                 </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+               
+                <Grid item>
+                          <ButtonGroup size="small" variant="contained">
+                            <Button color="error" startIcon={<FavoriteBorder/>}>
+                              Favorite
+                            </Button>
+                           
+                          </ButtonGroup>
+                        </Grid>
+                        </TableCell>
+
+                        <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+                <TableCell>
+                </TableCell>
+
+               
+                <TableCell>
+                
+                </TableCell>
                 <TableCell
-                  align="right"
-                  padding="normal"
-                  style={{ width: "10%" }}
+                 
                 ></TableCell>
+                <TableCell align="right">{row.rating}</TableCell>
+
+              
+                
                 <TableCell
-                  align="right"
-                  padding="normal"
-                  style={{ width: "0%" }}
+                  
                 ></TableCell>
 
-                <TableCell align="right">{row.rating}</TableCell>
+                
+                <TableCell>
+                 
+                </TableCell>
                 <TableCell
-                  align="left"
-                  padding="normal"
-                  style={{ width: "12%" }}
-                ></TableCell>
-                <TableCell
-                  align="right"
-                  padding="normal"
-                  style={{ width: "0%" }}
+                  
                 ></TableCell>
               </TableRow>
             ))}
@@ -136,9 +174,13 @@ export default function Details() {
 
   return (
     <div className="Destination City">
+      
       <TopBar onAccountPage={false} />
       <header className="Destination City">
-        <h1 style={{ textAlign: "center" }}>BERLIN</h1>
+        <h1></h1>
+      {/* <Image></Image> */}
+      <Picture></Picture>
+        
         <Paper
           color="default"
           variant="outlined"
@@ -150,13 +192,18 @@ export default function Details() {
             alignItems="center"
             columnGap={1}
           >
-            <p>
+            {/* <p>
               <img src={imagey} height={500} width={1300} />
-            </p>
+            </p> */}
 
-            <h2>WHY GO TO BERLIN!!!</h2>
-            <p>
+            {/* <h2>WHY GO TO BERLIN!!!</h2> */}
+            {/* <Typography variant="h4" gutterBottom component="div">
+            WHY GO TO BERLIN!!!
+      </Typography> */}
+           
+           
               {" "}
+              <Typography variant="h6" gutterBottom component="div">
               Tourists,Talents,Technology and Tolerance shape the rhythms of the
               city which is dynamic and welcoming ,tolerant and trendy,diverse
               and creative.A US magazine called Berlin “the place to be” and
@@ -186,7 +233,9 @@ export default function Details() {
               into the atmosphere and the highlights of that part of the city.
               The tips are organized into categories such as “Must See”, “Hidden
               Places” and “Eating and Drinking”.
-            </p>
+      </Typography>
+             
+          
           </Grid>
         </Paper>
 
@@ -199,47 +248,50 @@ export default function Details() {
             columnGap={5}
           >
             <div></div>
-            <Typography variant="h6" gutterBottom component="div">
+            <div></div>
+            <div></div>
+            <Typography variant="h1" gutterBottom component="div">
               MAP
             </Typography>
 
             <div></div>
             <div></div>
-            <div></div>
-            <div></div>
+            <img src={Map} height={550} width={850} />
 
-            <Typography variant="h6" gutterBottom component="div">
-              WEATHER
-            </Typography>
-            <div></div>
+
+         
             <div></div>
           </Grid>
         </Paper>
 
+
+       
         <Paper
-          elevation={0}
-          sx={{ padding: "1em", borderRadius: 1, display: "inline-block" }}
+          elevation={1}
+          sx={{ padding: "2em", borderRadius: 1, display: "inline-block" }}
         >
           <Grid
             container
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
-            columnGap={13}
+            columnGap={8}
           >
-            <img src={Map} height={350} width={600} />
+         
 
             <img
               src={Weather}
-              height={350}
-              width={600}
-              style={{
-                justifyContent: "right",
-                alignItems: "right",
-              }}
+              height={450}
+              width={750}              
             />
+            <div></div>
+             <Typography variant="h1" gutterBottom component="div">
+              WEATHER
+            </Typography>
+
           </Grid>
         </Paper>
+        <h1></h1>
 
         <Paper elevation={0}>
           <Grid
@@ -247,24 +299,36 @@ export default function Details() {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            columnGap={8}
+            columnGap={13}
           >
-            <div></div>
+        
+        <Typography variant="h4" gutterBottom component="div" align="center">
+        POI
+      </Typography>
+      <div></div>
+      
+      </Grid></Paper>
 
-            <h2>POI</h2>
-
-            <div></div>
-            <div></div>
-          </Grid>
-        </Paper>
+       
 
         <Paper
           elevation={0}
-          sx={{ padding: "1em", borderRadius: 2, display: "inline-block" }}
+          sx={{ padding: "2em", borderRadius: 2, display: "inline-block" }}
         >
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="center"
+            columnGap={30}
+          >
+            <div></div>
+        
+      
           <div className="row">
             <BasicTable></BasicTable>
           </div>
+          </Grid>
         </Paper>
       </header>
     </div>
